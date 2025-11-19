@@ -1,0 +1,100 @@
+:root {
+  --bg: #050510;
+  --card: #0f172a;
+  --text: #e2e8f0;
+  --accent: #00e5ff;
+  --glow: 0 0 20px #00e5ff;
+  --muted: #64748b;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 200vh; /* ให้ scroll ได้ */
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+#bgCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* ไม่บล็อก scroll หรือคลิก */
+  background: radial-gradient(circle at center, #0a0f2c, #000);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(10, 15, 40, 0.8);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  animation: fadeIn 1s ease;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+h1 { color: #00ffa6; text-shadow: 0 0 20px #00ffa6; }
+.lead { color: #e0ffff; margin-bottom: 20px; }
+
+.uploader { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+
+.dropzone {
+  width: 400px;
+  height: 260px;
+  border: 3px dashed #00e5ff;
+  border-radius: 16px;
+  background: rgba(0, 229, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+  transition: all 0.3s ease;
+}
+.dropzone:hover, .dropzone.dragover {
+  background: rgba(0, 229, 255, 0.15);
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+  transform: scale(1.02);
+}
+
+.placeholder { color: #00e5ff; font-size: 15px; text-shadow: 0 0 20px #00e5ff; }
+.placeholder .hint { color: #e0ffff; margin-top: 8px; }
+
+#preview { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; border-radius: 16px; }
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #00e5ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px #00e5ff;
+  transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.05); }
+
+.loading { font-size: 14px; color: #e0ffff; margin-top: 10px; }
+
+.results { margin-top: 30px; text-align: left; }
+.predictions { margin-top: 10px; }
+.pred-item { margin-bottom: 8px; padding: 10px; border-radius: 10px; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2); box-shadow: 0 0 10px rgba(0,229,255,0.1); }
+.progress { height: 10px; background: #111; border-radius: 8px; overflow: hidden; margin-top: 6px; box-shadow: inset 0 0 5px #000; }
+.progress-bar { height: 100%; background: linear-gradient(90deg, #00e5ff, #00ffa6); box-shadow: 0 0 20px #00e5ff; transition: width 0.4s ease; }
+
+.result-label { text-align: center; font-size: 24px; color: #00ffa6; text-shadow: 0 0 25px #00ffa6; margin-top: 16px; }

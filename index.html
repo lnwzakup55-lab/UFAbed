@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>UFAbed</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.11.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0"></script>
+</head>
+
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <main class="container">
+    <h1>⚡ UFA bed ⚡</h1>
+    <p class="lead">ลากหรืออัปโหลดภาพ — ระบบจะวิเคราะห์และบอกว่ากีฬาอะไร</p>
+
+    <section class="uploader">
+      <div id="dropzone" class="dropzone" tabindex="0">
+        <input id="fileInput" type="file" accept="image/*" hidden>
+        <img id="preview" alt="preview">
+        <div id="placeholder" class="placeholder">
+          <strong>ลากรูปมาวาง หรือคลิกที่นี่</strong>
+          <div class="hint">🏀 ⚽ 🏎️ 🏊‍♂️ 🎾 ⛳</div>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="uploadBtn" class="btn">เลือกไฟล์</button>
+        <div id="loading" class="loading">🚀 Loading model...</div>
+      </div>
+    </section>
+
+    <section class="results">
+      <h2>🔮 ผลการทำนาย</h2>
+      <div id="predictions" class="predictions"></div>
+      <h2 id="resultLabel" class="result-label"></h2>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
